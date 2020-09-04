@@ -10,11 +10,11 @@ export default class NavBar extends Component {
     render() {
 
         return (
-            <Navbar bg="dark" className="d-flex justify-content-between">
+            <Navbar className="d-flex justify-content-between navbar-dark">
                 <Navbar.Brand href="">
                     PanIt
                 </Navbar.Brand>
-                <NavDropdown bg="black" title="Menu" id="collasible-nav-dropdown" style={{ color: "#5299d3" }}>
+                <NavDropdown title="Menu" id="collasible-nav-dropdown">
                     <NavDropdown.Item>
                         My Account
                     </NavDropdown.Item>
