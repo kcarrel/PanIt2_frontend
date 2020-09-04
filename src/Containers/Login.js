@@ -22,12 +22,13 @@ class Login extends Component {
     handleSubmit = (ev) => {
         ev.preventDefault()
         //post to user database
-        fetch('https://localhost:3000/login', {
+        fetch('http://localhost:3000/login', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
                 Accept: 'application/json',
-            },
+            }, 
+            
             body: JSON.stringify({
                 user: {
                     email: this.state.email,
@@ -39,7 +40,7 @@ class Login extends Component {
             .then(json => {
                 if (json.user) {
                     localStorage.setItem('UserID', json.user.id);
-                    localStorage.setItem('Token', json.token);
+                    localStorage.setItem('Token', json.jwt);
                 } else {
                     alert("User information not found. Please try again.")
                 }
@@ -58,7 +59,7 @@ class Login extends Component {
                                 <Form>
                                         <Form.Group controlId="formBasicEmail">
                                             <Form.Label>Email address</Form.Label>
-                                            <Form.Control type="email" placeholder="Enter email" />
+                                        <Form.Control type="email" placeholder="Enter email" name="email" onChange={this.handleChange} value={this.state.email} autoComplete="email" autoFocus />
                                             <Form.Text className="text-muted">
                                             We'll never share your email with anyone else.
                                             </Form.Text>
@@ -66,9 +67,9 @@ class Login extends Component {
 
                                         <Form.Group controlId="formBasicPassword">
                                             <Form.Label>Password</Form.Label>
-                                            <Form.Control type="password" placeholder="Password" />
+                                        <Form.Control type="password" name="password" placeholder="Password" onChange={this.handleChange} value={this.state.password} autoComplete="password" autoFocus/>
                                         </Form.Group>
-                                        <Button variant="primary" type="submit">
+                                    <Button onClick={this.handleSubmit} variant="primary" type="submit">
                                             Submit
                                         </Button>
                                     </Form>
