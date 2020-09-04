@@ -14,7 +14,7 @@ export default class NavBar extends Component {
                 <Navbar.Brand href="">
                     PanIt
                 </Navbar.Brand>
-                <NavDropdown title="Menu" id="collasible-nav-dropdown">
+                <NavDropdown  alignRight title="Menu" id="collasible-nav-dropdown" flip>
                     <NavDropdown.Item>
                         My Account
                     </NavDropdown.Item>
