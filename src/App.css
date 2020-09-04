@@ -60,3 +60,11 @@ h1,h2,h3,h4,h5,h6,label,span {
   line-height: 1;
   padding-bottom: 20px;
 }
+
+.menu {
+  color: white !important; 
+}
+
+#collasible-nav-dropdown {
+  color: white;
+}

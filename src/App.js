@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Login from './Containers/Login';
+import Collection from './Containers/Collection';
 import NavBar from './Containers/NavBar';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import './App.css';
@@ -20,9 +21,13 @@ render() {
       <Router>
         <NavBar></NavBar>
 
-        <Route exact path='/login' render={(props) => <Login {...props} />} />
-
+        <Route exact path="/login" render={(props) => <Login {...props} />} />
+        <Route exact path="/collection" render={(props) => <Collection {...props} />} />
       </Router>
+      {/* <BottomNavigation id="bottom" showLabels>
+        <BottomNavigationAction style={{ color: 'white' }} onClick={() => window.location.href = '/about'} label="About"  />
+        <BottomNavigationAction style={{ color: 'white' }} onClick={() => window.location.href = '/contact'} label="Contact Us"  />
+      </BottomNavigation> */}
     </div>
   );
   }

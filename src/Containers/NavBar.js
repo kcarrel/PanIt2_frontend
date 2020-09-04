@@ -14,15 +14,17 @@ export default class NavBar extends Component {
                 <Navbar.Brand href="">
                     PanIt
                 </Navbar.Brand>
-                <NavDropdown  alignRight title="Menu" id="collasible-nav-dropdown" flip>
+                <NavDropdown  title="Menu" alignRight id="collasible-nav-dropdown" flip>
                     <NavDropdown.Item>
                         My Account
                     </NavDropdown.Item>
                     <NavDropdown.Item href="/login">
                         Login
                     </NavDropdown.Item>
-                </NavDropdown>
-                
+                    <NavDropdown.Item href="/collection">
+                        My Collection
+                    </NavDropdown.Item>
+                </NavDropdown>        
             </Navbar>
         );
     }
