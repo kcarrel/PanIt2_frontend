@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Login from './Containers/Login';
 import Collection from './Containers/Collection';
+import EditItem from './Containers/EditItem';
 import NavBar from './Containers/NavBar';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import './App.css';
@@ -23,6 +24,8 @@ render() {
 
         <Route exact path="/login" render={(props) => <Login {...props} />} />
         <Route exact path="/collection" render={(props) => <Collection {...props} />} />
+        <Route exact path="/item" render={(props) => <EditItem {...props} />} />
+
       </Router>
       {/* <BottomNavigation id="bottom" showLabels>
         <BottomNavigationAction style={{ color: 'white' }} onClick={() => window.location.href = '/about'} label="About"  />

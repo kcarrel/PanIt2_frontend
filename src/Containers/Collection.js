@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { Card } from "react-bootstrap";
-import Button from "react-bootstrap/Button";
 import Item from '../Components/Item'
 
 class Collection extends Component {
