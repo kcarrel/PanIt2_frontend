@@ -20,6 +20,39 @@ class AddItem extends Component {
         favorite: ''
     }
     }
+    handleChange = (ev) => {
+      const value = ev.target.type === 'checkbox' ? ev.target.checked : ev.target.value
+
+      this.setState({[ev.target.name]: value})
+    }
+
+    handleSubmit(ev) {
+      ev.preventDefault()
+      console.log("post it baby")
+      this.postItem()
+    }
+
+    postItem() {
+      fetch('http://localhost:3000/items', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Accept: 'application/json',
+        Authorization: `Bearer ${localStorage.getItem('Token')}`
+      },           
+      body: JSON.stringify({
+        item: {
+          brand: this.state.brand,
+          name: this.state.name,
+          favorite: this.state.favorite,
+          notes: this.state.notes
+        }
+      })
+    })
+      .then(response => response.json())
+      .then(alert("Item added to your collection!")
+      .then(window.location.href='/collection'))
+    }
 
     render() {
         return (
@@ -32,12 +65,12 @@ class AddItem extends Component {
                       <Form.Group as={Row} >
                         <Form.Group as={Col} xs="auto" controlId="formName">
                           <Form.Label>Name</Form.Label>
-                          <Form.Control type="name" placeholder="Name" />
+                          <Form.Control name='name' onChange={this.handleChange} type="name" placeholder="Name" />
                         </Form.Group>
 
                         <Form.Group as={Col} xs="auto" controlId="formBrand">
                           <Form.Label>Brand</Form.Label>
-                          <Form.Control type="brand" placeholder="Brand" />
+                          <Form.Control name='brand' onChange={this.handleChange} type="brand" placeholder="Brand" />
                         </Form.Group>
                         
                         <Form.Group
@@ -45,16 +78,16 @@ class AddItem extends Component {
                           xs="auto"
                           controlId="formFavoriteCheckbox"
                         >
-                          <Form.Check type="checkbox" label="Favorite" />
+                          <Form.Check name='favorite' onChange={this.handleChange} type="checkbox" label="Favorite" />
                         </Form.Group>
                       </Form.Group>
 
                       <Form.Group as={Col} controlId="formNotesTextArea">
                         <Form.Label>Notes</Form.Label>
-                        <Form.Control as="textarea" rows="3" />
+                        <Form.Control name='notes' onChange={this.handleChange} as="textarea" rows="3" />
                       </Form.Group>
                       <div align="right">
-                        <Button variant="primary" type="submit">
+                        <Button onClick={(ev) => this.handleSubmit(ev)} type="submit">
                           Submit
                         </Button>
                       </div>
