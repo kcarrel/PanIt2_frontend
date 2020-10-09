@@ -23,7 +23,7 @@ export default class NavBar extends Component {
                 My Collection
               </NavDropdown.Item>
               <NavDropdown.Item href="/item">
-                Edit Item
+                Add Item
               </NavDropdown.Item>
             </NavDropdown>
           </Navbar>
