@@ -34,24 +34,24 @@ class AddItem extends Component {
 
     postItem() {
       fetch('http://localhost:3000/items', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        Accept: 'application/json',
-        Authorization: `Bearer ${localStorage.getItem('Token')}`
-      },           
-      body: JSON.stringify({
-        item: {
-          brand: this.state.brand,
-          name: this.state.name,
-          favorite: this.state.favorite,
-          notes: this.state.notes
-        }
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+          Authorization: `Bearer ${localStorage.getItem('Token')}`
+        },           
+        body: JSON.stringify({
+          item: {
+            brand: this.state.brand,
+            name: this.state.name,
+            favorite: this.state.favorite,
+            notes: this.state.notes
+          }
+        })
       })
-    })
       .then(response => response.json())
-      .then(alert("Item added to your collection!")
-      .then(window.location.href='/collection'))
+      .then(alert("Item added to your collection!"))
+      .then(window.location.href='/collection')
     }
 
     render() {
