@@ -17,6 +17,7 @@ export default class NavBar extends Component {
               id="collasible-nav-dropdown"
               flip
             >
+              <NavDropdown.Item>Home</NavDropdown.Item>
               <NavDropdown.Item>My Account</NavDropdown.Item>
               <NavDropdown.Item href="/login">Login</NavDropdown.Item>
               <NavDropdown.Item href="/collection">

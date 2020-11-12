@@ -51,7 +51,7 @@ class Login extends Component {
 
     render() {
         return (
-            <div class="container">
+            <div class="login-container">
                 <div class="row h-100">
                     <div className="col-sm-12 my-auto">
                         <Card className="d-flex auth-inner">
