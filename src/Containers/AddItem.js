@@ -28,7 +28,6 @@ class AddItem extends Component {
 
     handleSubmit(ev) {
       ev.preventDefault()
-      console.log("post it baby")
       this.postItem()
     }
 
@@ -50,8 +49,7 @@ class AddItem extends Component {
         })
       })
       .then(response => response.json())
-      .then(alert("Item added to your collection!"))
-      .then(window.location.href='/collection')
+      .then(res => (alert(res.message)))
     }
 
     render() {
