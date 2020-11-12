@@ -4,6 +4,8 @@ import Login from './Containers/Login';
 import Collection from './Containers/Collection';
 import AddItem from './Containers/AddItem';
 import NavBar from './Containers/NavBar';
+import Home from './Components/Home';
+
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import './App.css';
 
@@ -23,6 +25,7 @@ render() {
         <NavBar></NavBar>
 
         <Route exact path="/login" render={(props) => <Login {...props} />} />
+        <Route exact path="/home" render={(props) => <Home {...props} />} />
         <Route exact path="/collection" render={(props) => <Collection {...props} />} />
         <Route exact path="/item" render={(props) => <AddItem {...props} />} />
 
